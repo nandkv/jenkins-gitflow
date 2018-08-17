@@ -24,11 +24,7 @@ node {
    }
    stage('Sonar') {
       // Run the maven build
-      if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' sonar:sonar"
-      } else {
-         bat(/"${mvnHome}\bin\mvn" sonar:sonar/)
-      }
+      echo "Sonar"
    }
    if(env.BRANCH_NAME == 'develop'){
      stage("Upload"){
