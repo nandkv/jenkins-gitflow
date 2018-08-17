@@ -24,7 +24,7 @@ node {
    }
    stage('Sonar') {
       // Run the maven build
-      echo "Sonar"
+      echo "Running sonar build"
    }
    if(env.BRANCH_NAME == 'develop'){
      stage("Upload"){
