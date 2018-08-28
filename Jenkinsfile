@@ -40,7 +40,7 @@ node {
      }
       stage("Publish to Hygeiea"){
          echo 'Publish develop results to Hygeiea'
-         hygieiaDeployPublishStep applicationName: 'jenkins-gitflow', artifactDirectory: '/target', artifactGroup: 'com.ameren.app', artifactName: '*.jar', artifactVersion: '', buildStatus: 'Success', environmentName: 'DEV'
+          hygieiaDeployPublishStep applicationName: 'jenkins-gitflow', artifactDirectory: 'target', artifactGroup: 'com.example', artifactName: 'jenkins-gitflow', artifactVersion: '0.0.1-SNAPSHOT', buildStatus: 'Success', environmentName: 'DEV'
       }
    }
    if(env.BRANCH_NAME ==~ /release.*/){
@@ -49,7 +49,7 @@ node {
      }
      stage("Publish to Hygeiea"){
          echo 'Publish release results to Hygeiea'
-         hygieiaDeployPublishStep applicationName: 'jenkins-gitflow', artifactDirectory: '/target', artifactGroup: 'com.ameren.app', artifactName: '*.jar', artifactVersion: '', buildStatus: 'Success', environmentName: 'DEV'
+          hygieiaDeployPublishStep applicationName: 'jenkins-gitflow', artifactDirectory: 'target', artifactGroup: 'com.example', artifactName: 'jenkins-gitflow', artifactVersion: '0.0.1-SNAPSHOT', buildStatus: 'Success', environmentName: 'QA'
      }
      stage("Dev Approval"){
         echo 'Waiting on Approval'
