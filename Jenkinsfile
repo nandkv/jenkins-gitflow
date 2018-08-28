@@ -38,10 +38,18 @@ node {
      stage("Smoke Test"){
          echo 'Deployed snapshot to DEV'
      }
+      stage("Publish to Hygeiea"){
+         echo 'Publish develop results to Hygeiea'
+         hygieiaDeployPublishStep applicationName: 'jenkins-gitflow', artifactDirectory: '/target', artifactGroup: 'com.ameren.app', artifactName: '*.jar', artifactVersion: '', buildStatus: 'Success', environmentName: 'DEV'
+      }
    }
    if(env.BRANCH_NAME ==~ /release.*/){
      stage("Deploy"){
         echo 'Deployed release to DEV'
+     }
+     stage("Publish to Hygeiea"){
+         echo 'Publish release results to Hygeiea'
+         hygieiaDeployPublishStep applicationName: 'jenkins-gitflow', artifactDirectory: '/target', artifactGroup: 'com.ameren.app', artifactName: '*.jar', artifactVersion: '', buildStatus: 'Success', environmentName: 'DEV'
      }
      stage("Dev Approval"){
         echo 'Waiting on Approval'
